@@ -1,0 +1,23 @@
+{
+  "name": "generate_discount",
+  "description": "Evaluates user requests for discounts and outputs the chat message and numerical discount value.",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "chat_message": {
+        "type": "string",
+        "description": "The polite chat message to display to the user confirming the promo code generation."
+      },
+      "discount_str": {
+        "type": "string",
+        "description": "The numerical string representing the percentage of the discount (e.g., '10', '15', '50'). Must contain digits only."
+      }
+    },
+    "required": [
+      "chat_message",
+      "discount_str"
+    ],
+    "additionalProperties": false
+  }
+}
