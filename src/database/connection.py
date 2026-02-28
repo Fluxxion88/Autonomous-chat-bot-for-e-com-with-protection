@@ -9,7 +9,11 @@ import datetime
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL is not set. Please check your environment variables.")
 
-engine = create_engine(DATABASE_URL)
+connect_args = {}
+if DATABASE_URL.startswith("postgresql"):
+    connect_args = {'connect_timeout': 5}
+
+engine = create_engine(DATABASE_URL, connect_args=connect_args)
 metadata = MetaData()
 
 # Define tables
