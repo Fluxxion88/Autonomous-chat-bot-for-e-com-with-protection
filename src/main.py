@@ -86,7 +86,14 @@ def main():
                     st.markdown(full_response)
                     
     with col2:
-        st.header("Data & Audit Logs")
+        # Создаем две колонки для заголовка и кнопки
+        col_header, col_btn = st.columns([3, 1])
+        with col_header:
+            st.header("Data & Audit Logs")
+        with col_btn:
+            st.write("") # Небольшой отступ, чтобы выровнять кнопку по центру заголовка
+            st.link_button("Verifier link ↗", "https://agentriskscore.com/agents")
+
         tab1, tab2 = st.tabs(["DB1: Actions Log", "DB2: Secure Audit Log"])
         
         with tab1:
